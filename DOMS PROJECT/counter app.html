@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+
+    <!--------------------------------------------------------------------------------------->
+    <!------------------------------------ CSS FILE ----------------------------------------->
+    <!--------------------------------------------------------------------------------------->
+
+   <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div{
+    height: 200px;
+    width: 500px;
+    box-shadow: 2px 2px 5px gray, -2px -2px 5px gray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
+}
+button{
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+}
+label{
+    border: 1px solid black;
+    padding: 5px 15px;
+    font-weight: bolder;
+    font-size: 25px;
+}
+   </style>
+</head>
+<body>
+    <header class="div">
+        <h1>
+            Counter App
+        </h1>
+        <div>
+            <button id="IncrementButton">Increment by 1</button>
+            <label id="valueButton">0</label>
+            <button id="decrementButton">Decrement by 1</button> 
+        </div>
+       <div>
+        <button id="btn4">Reset Value</button>
+       </div>
+    </header>
+
+    <!---------------------------------------------------------------------------------------------->
+    <!--------------------------------------- JAVASCRIPT FILE -------------------------------------->
+    <!--------------------------------------------------------------------------------------------2-->
+    <script>
+        
+let count = 0;
+
+let incrementButton = document.getElementById("IncrementButton").onclick = function () {
+    count+=1;
+    document.getElementById("valueButton").innerHTML = count;
+};
+
+
+let decrementButton = document.getElementById("decrementButton").onclick = function () {
+    count-=1;
+    document.getElementById("valueButton").innerHTML = count;
+};
+
+
+let resetBtn = document.getElementById("btn4").onclick = function () {
+    count=0;
+    document.getElementById("valueButton").innerText = count;
+};
+    </script>
+</body>
+</html>
