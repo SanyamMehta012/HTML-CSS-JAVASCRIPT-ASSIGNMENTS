@@ -1,0 +1,34 @@
+<!-- QUESTION.NO-20 Create a simple to-do app to add TODO items to the list through an input field and a button. using javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do App</title>
+</head>
+<body>
+    <h2>To-Do List</h2>
+    <input type="text" id="todoInput" placeholder="Enter your TODO">
+    <button onclick="addTodo()">Add TODO</button>
+    <ul id="todoList">
+    </ul>
+
+    <script>
+        function addTodo() {
+            const todoInput = document.getElementById('todoInput');
+            const todoList = document.getElementById('todoList');
+            const todoText = todoInput.value.trim();
+
+            if (todoText !== '') {
+                const listItem = document.createElement('li');
+                listItem.textContent = todoText;
+                todoList.appendChild(listItem);
+                todoInput.value = ''; // Clear the input field
+            } else {
+                alert('Please enter a valid TODO item!');
+            }
+        }
+    </script>
+</body>
+</html>

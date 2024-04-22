@@ -1,0 +1,45 @@
+<!-- QUESTION.NO-22 Create a progress bar that fills up as the user scrolls down the page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Progress Bar</title>
+    <style>
+        .progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+.progress-bar {
+    height: 5px;
+    background-color: #4caf50;
+    width: 0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div style="height: 2000px;">
+        <!-- This is just to make the page long enough for scrolling -->
+    </div>
+
+   <script>
+    window.addEventListener('scroll', function() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    
+    const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = scrollPercentage + '%';
+});
+
+   </script>
+</body>
+</html>

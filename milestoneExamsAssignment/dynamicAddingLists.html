@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Item Addition</title>
+</head>
+<body>
+  <h1>Dynamic List Item Addition</h1>
+  <ul id="list"></ul>
+  <button id="addButton">Add Item</button>
+  <p id="message"></p>
+
+  <script>
+    const listItems = [
+      "basic and advance of HTML and CSS",
+      "Projects on HTML nad Javascript",
+      "Learn JavaScript basics",
+      "Understand arrays and objects",
+      "Master DOM manipulation",
+      "Practice event handling",
+      "React.js , Express.js,",
+      "MongoDB",
+      "Internet"
+    ];
+
+    let currentItemIndex = 0;
+    const listElement = document.getElementById("list");
+    const addButton = document.getElementById("addButton");
+    const messageElement = document.getElementById("message");
+
+    // Function to add a new list item
+    function addListItem() {
+      if (currentItemIndex < listItems.length) {
+        const newItem = document.createElement("li");
+        newItem.textContent = listItems[currentItemIndex];
+        listElement.appendChild(newItem);
+        currentItemIndex++;
+      } else {
+        messageElement.textContent = "All items have been added.";
+      }
+    }
+
+    addButton.addEventListener("click", addListItem);
+  </script>
+</body>
+</html>
