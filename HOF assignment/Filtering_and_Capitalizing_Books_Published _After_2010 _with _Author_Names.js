@@ -1,20 +1,24 @@
-// QUESTION.NO-03  Suppose a store has a list of items and their prices in US Dollars stored as an object. Create a JavaScript program to convert the prices to Indian Rupees using an exchange rate of 1 USD to 80 INR. The program should use the map higher-order function to create a new object with the converted prices in Rupees.
+// QUESTION.NO-04 Write a program that takes a list of books, including their authors and publication years as input. The program  should then filter out all books that were published before 2010 and create a new array with the remaining books, but with their author names capitalized.
 
-// Store with items and their prices in USD
-const storeItems = {
-    "apple": 1.5,
-    "banana": 0.5,
-    "orange": 0.75,
-    "mango": 1.2,
-};
+// List of books with authors and publication years
+const books = [
+    { title: "Five Point Someone", author: "Chetan Bhagat", year: 2004 },
+    { title: "The Unproposed Guy", author: "Bhavik Sarkhedi", year: 2020 },
+    { title: "Life is What You Make It", author: "Preeti Shenoy", year: 2011 },
+    { title: "Family Life", author: "Akhil Sharma", year: 2014 },
+    { title: "Narcopolis", author: "Jeet Thayil", year: 2012 },
+    { title: "The White Tiger", author: "Aravind Adiga", year: 2008 },
+    { title: "Karma Cola", author: "Gita Mehta", year: 1979 }
+];
 
-// Exchange rate
-const exchangeRate = 80; // 1 USD to 80 INR
+// Filter and capitalize authors
+const filteredBooks = books
+    .filter(book => book.year >= 2010) // Filter out books published before 2010
+    .map(book => ({
+        title: book.title,
+        author: book.author.toUpperCase(), // Capitalize author name
+        year: book.year
+    }));
 
-// Convert prices to Indian Rupees
-const convertedPrices = Object.fromEntries(
-    Object.entries(storeItems).map(([item, price]) => [item, price * exchangeRate])
-);
-
-// Display the new object with prices in INR
-console.log(convertedPrices);
+// Display the new array of filtered books
+console.log(filteredBooks);
